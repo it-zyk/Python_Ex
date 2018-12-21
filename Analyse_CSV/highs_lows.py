@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 from datetime import datetime
 filename = 'sitka_weather_2014.csv'
 
-
+#  ---------------绘制气温图表---------------
 with open(filename) as f:
     reader = csv.reader(f)
     header_row = next(reader)
@@ -14,12 +14,12 @@ with open(filename) as f:
         try:
             current_date = datetime.strptime(row[0], "%Y-%m-%d")
             high = int(row[1])
-            low=int(row[3])
+            low = int(row[3])
         except ValueError:
-            print(current_date,'missing data')
+            print(current_date, 'missing data')
         else:
             dates.append(current_date)
-            highs.append(high) 
+            highs.append(high)
             lows.append(low)
     # print(highs)
 
@@ -27,7 +27,7 @@ with open(filename) as f:
 # 根据数据绘制图形
 fig = plt.figure(dpi=128, figsize=(10, 6))
 plt.plot(dates, highs, c='red')
-plt.plot(dates,lows,c='blue')
+plt.plot(dates, lows, c='blue')
 plt.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
 
 # 设置图形的格式
