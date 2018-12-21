@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 from random_walk import RandomWalk
 
-
+#---------------绘制随机漫步图----------------
 # 创建一个RandomWalk实例，并将其包含的点都绘制出来
 while True:
     rw = RandomWalk(50000)
